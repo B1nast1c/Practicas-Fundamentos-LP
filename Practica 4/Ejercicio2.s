@@ -1,7 +1,7 @@
 .data
     arr_1: .word 0:5
-    input: .asciiz "Ingrese número: "
-    output: .asciiz "Los números son: "
+    input: .asciiz "Ingrese un número: "
+    output: .asciiz "Los elementos en orden inverso son: \n"
 .text
 main:
     la $t0, arr_1
