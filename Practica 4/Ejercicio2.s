@@ -1,57 +1,50 @@
 .data
- num: .asciiz "Ingrese un numero: "
- output: .asciiz "Los números son: "
- arr: .byte 0:5
+    arr_1: .word 0:5
+    input: .asciiz "Ingrese número: "
+    output: .asciiz "Los números son: "
 .text
 main:
- li $t0, 0
- la $t1, arr
+    la $t0, arr_1
+    li $t1,0
 
- loop:
-  bge $t0, 5, exit
+    FOR:
+    bge $t1, 5, END_FOR
 
-  li $v0, 4
-  la $a0, num
-  syscall
+    la $a0, input #Mensaje ayuda
+    li $v0, 4
+    syscall 
 
-  li $v0, 5
-  syscall
-  move $t2, $v0
-  
+    li $v0, 5 	#enter integer
+    syscall
 
-  sw $t2, 0($t1)
+    sw $v0, 0($t0) #Seteo valores
 
+    add $t1, $t1, 1
+    add $t0, $t0, 4 #Pointer
+    j FOR
+    END_FOR:
+    
+    la $a0, output #Mensaje ayuda
+    li $v0, 4
+    syscall 
 
-  add $t1, $t1, 4
+    li $t1, 0
 
-  add $t0, $t0, 1
-  j loop
- exit:
+    FOR_2:
+    bge $t1, 5, END_FOR_2
+    sub $t0, $t0, 4 #Pointer --
+    lw $t2, 0($t0) #Get valores
 
- la $a0, output #Mensaje ayuda
- li $v0, 4
- syscall 
+    li $v0, 1 # print value
+    move $a0, $t2
+    syscall
 
- li $t0, 0
- la $t1, arr
+    li $a0, 32 # print space
+    li $v0, 11
+    syscall
 
- loop1:
-  bge $t0, 5, exit1
+    add $t1, $t1, 1
+    j FOR_2
+    END_FOR_2:
 
-  lw $t2, 16($t1)
-  sub $t1, $t1, 4
-
-  li $v0, 1
-  move $a0, $t2
-  syscall
-
-  li $a0, 32
-  li $v0, 11
-  syscall
-
-  add $t0, $t0, 1
-  j loop1
-
- exit1:
-
-jr $ra
+    jr $ra
