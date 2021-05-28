@@ -1,0 +1,9 @@
+| num |
+num:=(UIManager default request:'Ingrese num: ')asInteger .
+[ num>1 ] whileTrue: [ 
+	Transcript show: ((num) asString) , ' '.
+	(num\\2~=0)
+	ifTrue: [ num:=(num*3)+1. ]
+	ifFalse: [ num:=num/2.  ]. 
+	].
+Transcript show: ((1) asString).
