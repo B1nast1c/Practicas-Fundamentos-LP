@@ -1,0 +1,13 @@
+| n1 n2 n3 n4 sum nums |
+
+n1:=(UIManager default request:'ingrese primer numero')asInteger .
+n2:=(UIManager default request:'ingrese segundo numero')asInteger . 
+
+
+(n1 > n2) ifTrue: [ n3 := n2 +1. n4 := n1-1. sum := 0. nums:=Array newFrom: (n3 to: n4).
+		nums do: [ :a | sum := sum + a ].
+		Transcript show: (sum)asString ]
+
+ifFalse: [ n3 := n1 +1. n4 := n2-1. sum := 0. nums:=Array newFrom: (n3 to: n4).
+		nums do: [ :a | sum := sum + a ].
+		Transcript show: (sum)asString  ].
