@@ -1,0 +1,24 @@
+primoPalindromo
+	| total num esprimo binario |
+	total := 0.
+	num := 0.
+	Transcript cr.
+	[ total < 10 ]
+		whileTrue: [ num := num + 1.
+			esprimo := num isPrime.
+			(esprimo)
+				ifTrue: [
+						binario:= num radix: 2.
+						(binario = binario reverse)
+						ifTrue:[
+							Transcript show: num; space.
+							total:= total+1.
+							]
+					]
+				ifFalse: [  ]. ].
+	
+  
+  //Invocación en el Transcript
+  |obj1 resul|
+  obj1:= Ejer2 new.
+  resul:= obj1 primoPalindromo.
