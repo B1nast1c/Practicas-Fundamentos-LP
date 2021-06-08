@@ -1,0 +1,30 @@
+|x1 y1 r1 x2 y2 r2 distancia| 
+
+x1:=(UIManager default request:'Ingrese el primer valor de X: ')asInteger .
+y1:=(UIManager default request:'Ingrese el primer valor de Y: ')asInteger .
+r1:=(UIManager default request:'Ingrese el primer radio: ')asInteger .
+x2:=(UIManager default request:'Ingrese el segundo valor de X: ')asInteger .
+y2:=(UIManager default request:'Ingrese el segundo valor de Y: ')asInteger .
+r2:=(UIManager default request:'Ingrese el segundo radio: ')asInteger .
+
+distancia:= ( ((x1-x2)raisedTo: 2) + ((y1-y2)raisedTo: 2) ) sqrt.
+Transcript show: 'A: ('; show: x1 ; show: ','; show:y1; show:') radio: '  ;show: r1;cr.
+Transcript show: 'B: ('; show: x2 ; show: ','; show:y2; show:') radio: '  ;show: r2;cr.
+
+(distancia<(r1+r2))
+	ifTrue:[
+		|aux|
+		aux:=(r1-r2) abs.
+		(aux<=distancia)
+		ifTrue:[
+			Transcript show: 'Las circunferencias si se intersectan'.
+		]
+		ifFalse:[
+			Transcript show: 'Las circunferencias no se intersectan'.
+		]
+	]
+	ifFalse:[
+		distancia=(r1+r2)
+		ifTrue: [ Transcript show: 'Las circunferencias si se intersectan'. ]
+    	ifFalse: [ Transcript show: 'Las circunferencias no se intersectan'. ].
+	].
