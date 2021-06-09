@@ -1,0 +1,59 @@
+
+| cont pos  di da dm num | 
+	pos := 0.
+	num := 0.
+2 to: 900 do: [ :i  |
+	cont := 0 .
+
+	2 to: i do: [ :j | 
+		i % j = 0 
+		
+		ifTrue: [
+			cont := cont + 1.
+		]
+	].
+	num := i.
+	(cont >=2) 
+	ifFalse:[
+		pos := pos +1.
+		
+		(num >=10)
+		ifTrue: [
+			di := (num // 10 ).
+			da := (num % 10).
+			(di * da = pos)
+			ifTrue: [
+				Transcript show: i ; cr.
+			]
+		].
+	
+		(num >= 100)
+		ifTrue: [
+			di := (num // 100 ).
+			dm := (num % 100)//10.
+			da := (num % 100) % 10.
+		
+			(di * da * dm = pos)
+			ifTrue: [
+				Transcript show: i ; cr.
+			]
+		].
+	
+		(num < 10)
+		ifTrue: [
+		
+			(num = pos)
+			ifTrue: [
+				Transcript show: i ; cr.
+			]
+		 ].
+
+	]
+]  
+
+
+
+
+ |obj resul|
+  obj:= FLP_1_practica_8 new.
+  resul:= obj primo_multdig.
