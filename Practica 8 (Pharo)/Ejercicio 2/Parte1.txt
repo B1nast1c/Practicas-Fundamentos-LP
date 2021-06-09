@@ -1,0 +1,44 @@
+espejo
+	|primos contador cont numero reverso valor1 valor2|
+
+	primos:= Array new: 100.
+	contador:= 1.
+	numero:=1.
+
+	[contador <= 100] 
+		whileTrue:[ 
+			(numero isPrime ) ifTrue:[ 
+				primos at: contador put: numero.
+				contador:= contador+1
+				].
+         	numero:= numero+1
+	].
+
+	cont:=1.
+	[cont <= 100] 
+		whileTrue:[
+			reverso:= ( ( ( cont ) asString ) reverse ) asNumber .
+			(cont ~~ reverso) ifTrue:[ 
+				valor1:= primos at: cont .
+				valor2:= primos at: reverso .
+				valor2:= (valor2 asString) reverse.
+				valor2:= valor2 asNumber.
+				(valor1 == valor2) ifTrue:[ 
+					Transcript 
+						show: 'Primo '; 
+						show: valor1; 
+						show: ' en la posicion: '; 
+						show: cont; 
+						show:' con el primo ';
+						show: valor2; 
+						show:' en la posicion '; 
+						show: reverso; cr 
+					]
+            ].
+         cont := cont+1        
+	]. 
+
+"En el Transcript"
+|obj final|
+obj:= Practica8  new.
+final:= obj espejo.
