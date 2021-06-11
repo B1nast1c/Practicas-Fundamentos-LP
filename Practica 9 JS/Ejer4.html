@@ -1,0 +1,26 @@
+<html>
+    <body>
+        <script>
+
+            function factorialIterativo(numero){
+                resultado = 1;
+                for(let i = 1; i<=numero;i++){
+                    resultado=resultado*i;
+                }
+                return resultado;
+            }
+            console.log(factorialIterativo(5));
+    
+            function factorialRecursivo(numero){
+                if(numero==0){
+                    return 1;
+                }
+                else{
+                    return numero * factorialRecursivo(numero-1);
+                }
+            }
+            console.log(factorialRecursivo(5));
+
+        </script>
+    </body>
+</html>
