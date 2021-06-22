@@ -1,1 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+<body >
+  <p>Ejercicio 2 :)...</p>
+  <script>
+   function square (x) { return (x*x); }
 
+    function mymap_recursive (arr , f){
+        if(arr.length == 0){
+            return [];
+        }
+        return [f(arr[0])].concat(mymap_recursive(arr.slice(1),f));    
+    }
+    result1 = mymap_recursive ([1 , 2, 3 , 4 , 5] , square );
+    result2 = mymap_recursive ([1 , 4, 9 , 16 , 25] , Math . sqrt );
+    console .log (" mymap_recursive result1 :", result1 ); // [1 , 4, 9, 16 , 25]
+    console .log (" mymap_recursive result2 :", result2 ); // [1 , 2, 3, 4, 5]  
+    
+  </script>
+  <p>Ejecutado</p>
+</body>
+</html>
