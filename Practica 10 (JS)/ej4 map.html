@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>  FLP Practica 10</title>    
+</head> 
+<body>
+
+<script>
+
+//Implemente una funcion mymap que tome como parametros
+// un array y una funcion f. Luego,
+//debe retornar otro vector que resulte de aplicar la 
+//funcion f en cada elemento del vector.
+
+function square (x) { return (x*x); }
+
+
+function mymap (arr , f){
+	arr2 = []
+	arr.forEach(element =>
+   		arr2.push(f(element)));
+	return arr2
+
+}
+result1 = mymap ([1 , 2, 3, 4, 5], square );
+result2 = mymap ([1 , 4, 9, 16, 25] , Math . sqrt );
+console .log (" result1 :", result1 ); // [1, 4, 9, 16, 25]
+console .log (" result2 :", result2 ); // [1, 2, 3, 4, 5]
+
+
+
+
+</script>
+
+<h3> Ejercicio 4 , Practica 10</h3>
+</body>
+</html>
